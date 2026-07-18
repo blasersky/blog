@@ -1,0 +1,219 @@
+@charset "utf-8";
+
+// Uwunicorn skin
+// ==============
+// Created by Emmet, aka "LibrePhoenix"
+// (https://gitlab.com/librephoenix, https://github.com/librephoenix)
+// Based on Solarized minima skin created by Sander Voerman <mailto:sander@savoerman.nl>
+// using the Solarized color scheme by Ethan Schoonover <https://ethanschoonover.com/solarized>.
+
+// This style sheet implements three options for the minima.skin setting:
+// "uwunicorn-light" for light mode, "uwunicorn-dark" for dark mode, and
+// "uwunicorn" for light or dark mode depending on user preference.
+$uwu-is-auto: true !default;
+$uwu-is-dark: false !default;
+
+
+// Color scheme
+// ------------
+
+$uwu-base03:   #241b26;
+$uwu-base02:   #2f2a3f;
+$uwu-base01:   #46354a;
+$uwu-base00:   #6c3cb2;
+$uwu-base0:    #7e5f83;
+$uwu-base1:    #eed5d9;
+$uwu-base2:    #d9c2c6;
+$uwu-base3:    #e4ccd0;
+$uwu-yellow:   #877bb6;
+$uwu-orange:   #de5b44;
+$uwu-red:      #a84a73;
+$uwu-magenta:  #c965bf;
+$uwu-violet:   #9c5fce;
+$uwu-blue:     #6a9eb5;
+$uwu-cyan:     #78a38f;
+$uwu-green:    #a3a079;
+
+
+// Mixed colors
+// ------------
+// While not part of the original Uwunicorn base tones, these derived tones
+// are meant to replicate the visual style of the classic skin. They should
+// not be used in cases where sufficiently contrasting colors are needed.
+
+$uwu-light-mix1:  mix($uwu-base1, $uwu-base3);
+$uwu-light-mix2:  mix($uwu-blue, $uwu-base00);
+$uwu-light-mix3:  mix($uwu-base2, $uwu-base3);
+$uwu-dark-mix1:   mix($uwu-base01, $uwu-base03);
+$uwu-dark-mix2:   mix($uwu-blue, $uwu-base0);
+$uwu-dark-mix3:   mix($uwu-base02, $uwu-base03);
+
+
+// Mode selection
+// --------------
+
+$uwu-mono3:    $uwu-base3;
+$uwu-mono2:    $uwu-base2;
+$uwu-mono1:    $uwu-base1;
+$uwu-mono00:   $uwu-base00;
+$uwu-mono01:   $uwu-base01;
+$uwu-mix1:     $uwu-light-mix1;
+$uwu-mix2:     $uwu-light-mix2;
+$uwu-mix3:     $uwu-light-mix3;
+
+@if $uwu-is-dark {
+  $uwu-mono3:  $uwu-base03;
+  $uwu-mono2:  $uwu-base02;
+  $uwu-mono1:  $uwu-base01;
+  $uwu-mono00: $uwu-base0;
+  $uwu-mono01: $uwu-base1;
+  $uwu-mix1:   $uwu-dark-mix1;
+  $uwu-mix2:   $uwu-dark-mix2;
+  $uwu-mix3:   $uwu-dark-mix3;
+}
+
+@if $uwu-is-auto {
+  :root {
+    --uwunicorn-mono3:  #{$uwu-base3};
+    --uwunicorn-mono2:  #{$uwu-base2};
+    --uwunicorn-mono1:  #{$uwu-base1};
+    --uwunicorn-mono00: #{$uwu-base00};
+    --uwunicorn-mono01: #{$uwu-base01};
+    --uwunicorn-mix1:   #{$uwu-light-mix1};
+    --uwunicorn-mix2:   #{$uwu-light-mix2};
+    --uwunicorn-mix3:   #{$uwu-light-mix3};
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --uwunicorn-mono3:  #{$uwu-base03};
+      --uwunicorn-mono2:  #{$uwu-base02};
+      --uwunicorn-mono1:  #{$uwu-base01};
+      --uwunicorn-mono00: #{$uwu-base0};
+      --uwunicorn-mono01: #{$uwu-base1};
+      --uwunicorn-mix1:   #{$uwu-dark-mix1};
+      --uwunicorn-mix2:   #{$uwu-dark-mix2};
+      --uwunicorn-mix3:   #{$uwu-dark-mix3};
+    }
+  }
+
+  $uwu-mono3:  var(--uwunicorn-mono3);
+  $uwu-mono2:  var(--uwunicorn-mono2);
+  $uwu-mono1:  var(--uwunicorn-mono1);
+  $uwu-mono00: var(--uwunicorn-mono00);
+  $uwu-mono01: var(--uwunicorn-mono01);
+  $uwu-mix1:   var(--uwunicorn-mix1);
+  $uwu-mix2:   var(--uwunicorn-mix2);
+  $uwu-mix3:   var(--uwunicorn-mix3);
+}
+
+
+// Minima color variables
+// ----------------------
+
+$brand-color:           $uwu-blue !default;
+$brand-color-light:     $uwu-blue !default;
+$brand-color-dark:      $uwu-blue !default;
+
+$site-title-color:      $uwu-red !default;
+
+$text-color:            $uwu-mono01 !default;
+$background-color:      $uwu-mono3 !default;
+$code-background-color: $uwu-mono2 !default;
+
+$link-base-color:       $uwu-magenta !default;
+$link-visited-color:    $uwu-magenta !default;
+$link-hover-color:      $uwu-orange !default;
+
+$border-color-01:       $brand-color-light !default;
+$border-color-02:       $uwu-mono1 !default;
+$border-color-03:       $uwu-mono00 !default;
+
+$table-text-color:      $uwu-mono00 !default;
+$table-zebra-color:     $uwu-mix3 !default;
+$table-header-bg-color: $uwu-mono2 !default;
+$table-header-border:   $uwu-mono1 !default;
+$table-border-color:    $uwu-mono1 !default;
+
+
+// Syntax highlighting styles
+// --------------------------
+
+.highlight {
+  .c     { color: $uwu-mono1; font-style: italic } // Comment
+  .err   { color: $uwu-red } // Error
+  .k     { color: $uwu-mono01; font-weight: bold } // Keyword
+  .o     { color: $uwu-mono01; font-weight: bold } // Operator
+  .cm    { color: $uwu-mono1; font-style: italic } // Comment.Multiline
+  .cp    { color: $uwu-mono1; font-weight: bold } // Comment.Preproc
+  .c1    { color: $uwu-mono1; font-style: italic } // Comment.Single
+  .cs    { color: $uwu-mono1; font-weight: bold; font-style: italic } // Comment.Special
+  .gd    { color: $uwu-red } // Generic.Deleted
+  .gd .x { color: $uwu-red } // Generic.Deleted.Specific
+  .ge    { color: $uwu-mono00; font-style: italic } // Generic.Emph
+  .gr    { color: $uwu-red } // Generic.Error
+  .gh    { color: $uwu-mono1 } // Generic.Heading
+  .gi    { color: $uwu-green } // Generic.Inserted
+  .gi .x { color: $uwu-green } // Generic.Inserted.Specific
+  .go    { color: $uwu-mono00 } // Generic.Output
+  .gp    { color: $uwu-mono00 } // Generic.Prompt
+  .gs    { color: $uwu-mono01; font-weight: bold } // Generic.Strong
+  .gu    { color: $uwu-mono1 } // Generic.Subheading
+  .gt    { color: $uwu-red } // Generic.Traceback
+  .kc    { color: $uwu-mono01; font-weight: bold } // Keyword.Constant
+  .kd    { color: $uwu-mono01; font-weight: bold } // Keyword.Declaration
+  .kp    { color: $uwu-mono01; font-weight: bold } // Keyword.Pseudo
+  .kr    { color: $uwu-mono01; font-weight: bold } // Keyword.Reserved
+  .kt    { color: $uwu-violet; font-weight: bold } // Keyword.Type
+  .m     { color: $uwu-cyan } // Literal.Number
+  .s     { color: $uwu-magenta } // Literal.String
+  .na    { color: $uwu-cyan } // Name.Attribute
+  .nb    { color: $uwu-blue } // Name.Builtin
+  .nc    { color: $uwu-violet; font-weight: bold } // Name.Class
+  .no    { color: $uwu-cyan } // Name.Constant
+  .ni    { color: $uwu-violet } // Name.Entity
+  .ne    { color: $uwu-violet; font-weight: bold } // Name.Exception
+  .nf    { color: $uwu-blue; font-weight: bold } // Name.Function
+  .nn    { color: $uwu-mono00 } // Name.Namespace
+  .nt    { color: $uwu-blue } // Name.Tag
+  .nv    { color: $uwu-cyan } // Name.Variable
+  .ow    { color: $uwu-mono01; font-weight: bold } // Operator.Word
+  .w     { color: $uwu-mono1 } // Text.Whitespace
+  .mf    { color: $uwu-cyan } // Literal.Number.Float
+  .mh    { color: $uwu-cyan } // Literal.Number.Hex
+  .mi    { color: $uwu-cyan } // Literal.Number.Integer
+  .mo    { color: $uwu-cyan } // Literal.Number.Oct
+  .sb    { color: $uwu-magenta } // Literal.String.Backtick
+  .sc    { color: $uwu-magenta } // Literal.String.Char
+  .sd    { color: $uwu-magenta } // Literal.String.Doc
+  .s2    { color: $uwu-magenta } // Literal.String.Double
+  .se    { color: $uwu-magenta } // Literal.String.Escape
+  .sh    { color: $uwu-magenta } // Literal.String.Heredoc
+  .si    { color: $uwu-magenta } // Literal.String.Interpol
+  .sx    { color: $uwu-magenta } // Literal.String.Other
+  .sr    { color: $uwu-green } // Literal.String.Regex
+  .s1    { color: $uwu-magenta } // Literal.String.Single
+  .ss    { color: $uwu-magenta } // Literal.String.Symbol
+  .bp    { color: $uwu-mono1 } // Name.Builtin.Pseudo
+  .vc    { color: $uwu-cyan } // Name.Variable.Class
+  .vg    { color: $uwu-cyan } // Name.Variable.Global
+  .vi    { color: $uwu-cyan } // Name.Variable.Instance
+  .il    { color: $uwu-cyan } // Literal.Number.Integer.Long
+}
+
+.figure {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/assets/background.jpg');
+  background-size: cover;
+  z-index: -9999; /* added */
+}

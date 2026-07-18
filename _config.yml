@@ -32,6 +32,17 @@ theme: minima
 plugins:
   - jekyll-feed
 
+#minima:
+#  skin: uwunicorn-dark # does not work
+#  skin: sorarized-dark # neither does this
+#  skin: dark # this works
+
+#defaults:
+#  - scope:
+#      path: ""
+#    values:
+#      image: /assets/lasercat3.jpg
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
