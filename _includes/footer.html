@@ -7,6 +7,7 @@
 
     <div class="footer-col-wrapper">
       <div class="footer-col">
+      {% if false %}
       {%- if site.author %}
         <ul class="contact-list">
           {% if site.author.name -%}
@@ -17,6 +18,8 @@
           {%- endif %}
         </ul>
       {%- endif %}
+      {% endif %}
+      {% include 88x31.html file="/assets/88x31_final.png" alt="blasere's 88x31" %}
       </div>
       <div class="footer-col">
         <p>{{ site.description | escape }}</p>

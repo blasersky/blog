@@ -1,0 +1,275 @@
+@charset "utf-8";
+
+// Uwulaser skin
+// ==============
+// based on Uwunicorn minima skin created by Emmet, aka "LibrePhoenix"
+// (https://gitlab.com/librephoenix, https://github.com/librephoenix)
+// itself based on Solarized minima skin created by Sander Voerman <mailto:sander@savoerman.nl>
+// using the Solarized color scheme by Ethan Schoonover <https://ethanschoonover.com/solarized>.
+
+// This style sheet implements three options for the minima.skin setting:
+// "uwunicorn-light" for light mode, "uwunicorn-dark" for dark mode, and
+// "uwunicorn" for light or dark mode depending on user preference.
+$uwu-is-auto: true !default;
+$uwu-is-dark: false !default;
+
+
+// Color scheme
+// ------------
+// anything marked by a comment means that it was modified from the uwunicorn theme
+$uwu-base03:   #102610; //
+$uwu-base02:   #2f2a3f;
+$uwu-base01:   #46f04a; //hovered rss square
+$uwu-base00:   #6c3cb2;
+$uwu-base0:    #1ae13c; //main text
+$uwu-base1:    #00ff00; //code in a separated block
+$uwu-base2:    #d9c2c6;
+$uwu-base3:    #e4ccd0;
+$uwu-yellow:   #877bb6;
+$uwu-orange:   #47ffa3; //hovered link
+$uwu-red:      #6ea835; //
+$uwu-magenta:  #65c9c9; //non-hovered link
+$uwu-violet:   #9c5fce;
+$uwu-blue:     #6ab59e; //footer text
+$uwu-cyan:     #78a38f;
+$uwu-green:    #a3a079;
+
+// Non-canonical; Derived to comply with WCAG-contrast criterion.
+// not modified for now, they seem to be link related
+// probably unused
+$uwu-light-blue:   #469edd;
+$uwu-light-blue2:  #64a5ce;
+$uwu-dark-blue:    #2072ac;
+$uwu-dark-blue2:   #376a8b;
+
+// Mixed colors
+// ------------
+// While not part of the original Uwulaser base tones, these derived tones
+// are meant to replicate the visual style of the classic skin. They should
+// not be used in cases where sufficiently contrasting colors are needed.
+
+$uwu-light-mix1:  mix($uwu-base1, $uwu-base3);
+$uwu-light-mix2:  mix($uwu-blue, $uwu-base00);
+$uwu-light-mix3:  mix($uwu-base2, $uwu-base3);
+$uwu-light-mix4:  #e8e3d4; // custom mixture of `$uwu-base1` and `$uwu-base3`.
+$uwu-dark-mix1:   mix($uwu-base01, $uwu-base03);
+$uwu-dark-mix2:   mix($uwu-blue, $uwu-base0);
+$uwu-dark-mix3:   mix($uwu-base02, $uwu-base03);
+$uwu-dark-mix4:   #193843; // custom mixture of `$uwu-base01` and `$uwu-base03`.
+
+// Mode selection
+// --------------
+
+$uwu-mono3:    $uwu-base3;
+$uwu-mono2:    $uwu-base2;
+$uwu-mono1:    $uwu-base1;
+$uwu-mono00:   $uwu-base00;
+$uwu-mono01:   $uwu-base01;
+$uwu-mix1:     $uwu-light-mix1;
+$uwu-mix2:     $uwu-light-mix2;
+$uwu-mix3:     $uwu-light-mix3;
+$uwu-mix4:     $uwu-light-mix4;
+
+$uwu-mono1-dimmed: darken($uwu-base1, 20%);
+$uwu-link-color:   $uwu-dark-blue;
+$uwu-link-visited: $uwu-dark-blue2;
+
+$uwu-mark-line-bgcolor: #ffffcc;
+
+@if $uwu-is-dark {
+  $uwu-mono3:  $uwu-base03;
+  $uwu-mono2:  $uwu-base02;
+  $uwu-mono1:  $uwu-base01;
+  $uwu-mono00: $uwu-base0;
+  $uwu-mono01: $uwu-base1;
+  $uwu-mix1:   $uwu-dark-mix1;
+  $uwu-mix2:   $uwu-dark-mix2;
+  $uwu-mix3:   $uwu-dark-mix3;
+  $uwu-mix4:   $uwu-dark-mix4;
+
+  $uwu-mono1-dimmed: lighten($uwu-base01, 16%);
+  $uwu-link-color:   $uwu-light-blue;
+  $uwu-link-visited: $uwu-light-blue2;
+
+  $uwu-mark-line-bgcolor: #164145;
+}
+
+@if $uwu-is-auto {
+  :root {
+    --uwulaser-mono3:  #{$uwu-base3};
+    --uwulaser-mono2:  #{$uwu-base2};
+    --uwulaser-mono1:  #{$uwu-base1};
+    --uwulaser-mono00: #{$uwu-base00};
+    --uwulaser-mono01: #{$uwu-base01};
+    --uwulaser-mix1:   #{$uwu-light-mix1};
+    --uwulaser-mix2:   #{$uwu-light-mix2};
+    --uwulaser-mix3:   #{$uwu-light-mix3};
+    --uwulaser-mix4:   #{$uwu-light-mix4};
+
+    --uwulaser-mono1-dimmed: #{darken($uwu-base1, 20%)};
+    --uwulaser-link-color:   #{$uwu-dark-blue};
+    --uwulaser-link-visited: #{$uwu-dark-blue2};
+
+    --uwulaser-mark-line-bg-color: #ffffcc;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --uwulaser-mono3:  #{$uwu-base03};
+      --uwulaser-mono2:  #{$uwu-base02};
+      --uwulaser-mono1:  #{$uwu-base01};
+      --uwulaser-mono00: #{$uwu-base0};
+      --uwulaser-mono01: #{$uwu-base1};
+      --uwulaser-mix1:   #{$uwu-dark-mix1};
+      --uwulaser-mix2:   #{$uwu-dark-mix2};
+      --uwulaser-mix3:   #{$uwu-dark-mix3};
+      --uwulaser-mix4:   #{$uwu-dark-mix4};
+
+      --uwulaser-mono1-dimmed: #{lighten($uwu-base01, 16%)};
+      --uwulaser-link-color:   #{$uwu-light-blue};
+      --uwulaser-link-visited: #{$uwu-light-blue2};
+
+      --uwulaser-mark-line-bg-color: #164145;
+    }
+  }
+
+  $uwu-mono3:  var(--uwulaser-mono3);
+  $uwu-mono2:  var(--uwulaser-mono2);
+  $uwu-mono1:  var(--uwulaser-mono1);
+  $uwu-mono00: var(--uwulaser-mono00);
+  $uwu-mono01: var(--uwulaser-mono01);
+  $uwu-mix1:   var(--uwulaser-mix1);
+  $uwu-mix2:   var(--uwulaser-mix2);
+  $uwu-mix3:   var(--uwulaser-mix3);
+  $uwu-mix4:   var(--uwulaser-mix4);
+
+  $uwu-mono1-dimmed: var(--uwulaser-mono1-dimmed);
+  $uwu-link-color:   var(--uwulaser-link-color);
+  $uwu-link-visited: var(--uwulaser-link-visited);
+
+  $uwu-mark-line-bgcolor: var(--uwulaser-mark-line-bg-color);
+}
+
+
+// Minima color variables
+// ----------------------
+
+$brand-color:           $uwu-blue !default;
+$brand-color-light:     $uwu-blue !default;
+$brand-color-dimmed:    $uwu-blue !default;
+$brand-color-dark:      $uwu-blue !default;
+
+$site-title-color:      $uwu-red !default;
+
+$heading-color:         $uwu-mono01 !default;
+$text-color:            $uwu-mono00 !default;
+$background-color:      $uwu-mono3 !default;
+$code-background-color: $uwu-mix3 !default;
+
+$link-base-color:       $uwu-magenta !default;
+$link-visited-color:    $uwu-magenta !default;
+$link-hover-color:      $uwu-orange !default;
+
+$border-color-01:       $brand-color-light !default;
+$border-color-02:       $uwu-mono1 !default;
+$border-color-03:       $uwu-mono00 !default;
+
+$table-text-color:      $uwu-mono00 !default;
+$table-zebra-color:     $uwu-mix3 !default;
+$table-header-bg-color: $uwu-mono2 !default;
+$table-header-border:   $uwu-mix1 !default;
+$table-border-color:    $uwu-mix1 !default;
+
+
+// Syntax highlighting styles
+// --------------------------
+
+.highlight {
+  .err   { color: #fefeec; background-color: $uwu-red } // Error
+
+  .c     { color: $uwu-mono1 } // Comment
+  .c1    { color: $uwu-mono1 } // Comment.Single
+  .cm    { color: $uwu-mono1 } // Comment.Multiline
+  .cp    { color: $uwu-mono1 } // Comment.Preproc
+  .cs    { color: $uwu-mono1; font-style: italic } // Comment.Special
+
+  .gd    { color: $uwu-red } // Generic.Deleted
+  .gd .x { color: $uwu-red } // Generic.Deleted.Specific
+  .ge    { color: $uwu-mono00; font-style: italic } // Generic.Emph
+  .gh    { color: $uwu-mono1 } // Generic.Heading
+  .gi    { color: $uwu-green } // Generic.Inserted
+  .gi .x { color: $uwu-green } // Generic.Inserted.Specific
+  .go    { color: $uwu-mono00 } // Generic.Output
+  .gp    { color: $uwu-mono00 } // Generic.Prompt
+  .gr    { color: $uwu-red } // Generic.Error
+  .gs    { color: $uwu-mono01; font-weight: bold } // Generic.Strong
+  .gt    { color: $uwu-red } // Generic.Traceback
+  .gu    { color: $uwu-mono1 } // Generic.Subheading
+
+  .k     { color: $uwu-orange } // Keyword
+  .kc    { color: $uwu-orange } // Keyword.Constant
+  .kd    { color: $uwu-orange } // Keyword.Declaration
+  .kp    { color: $uwu-orange } // Keyword.Pseudo
+  .kr    { color: $uwu-orange } // Keyword.Reserved
+  .kt    { color: $uwu-violet } // Keyword.Type
+
+  .na    { color: $uwu-cyan } // Name.Attribute
+  .nb    { color: $uwu-orange } // Name.Builtin
+  .bp    { color: $uwu-blue } // Name.Builtin.Pseudo
+  .nc    { color: $uwu-violet } // Name.Class
+  .ne    { color: $uwu-violet } // Name.Exception
+  .nf    { color: $uwu-blue } // Name.Function
+  .ni    { color: $uwu-violet } // Name.Entity
+  .nn    { color: $uwu-violet } // Name.Namespace
+  .no    { color: $uwu-violet } // Name.Constant
+  .nt    { color: $uwu-orange } // Name.Tag
+  .nv    { color: $uwu-cyan } // Name.Variable
+  .vc    { color: $uwu-cyan } // Name.Variable.Class
+  .vg    { color: $uwu-cyan } // Name.Variable.Global
+  .vi    { color: $uwu-cyan } // Name.Variable.Instance
+
+  .o     { color: $uwu-green } // Operator
+  .ow    { color: $uwu-green } // Operator.Word
+
+  .m     { color: $uwu-violet } // Literal.Number
+  .mf    { color: $uwu-violet } // Literal.Number.Float
+  .mh    { color: $uwu-violet } // Literal.Number.Hex
+  .mi    { color: $uwu-violet } // Literal.Number.Integer
+  .il    { color: $uwu-violet } // Literal.Number.Integer.Long
+  .mo    { color: $uwu-violet } // Literal.Number.Oct
+
+  .s     { color: $uwu-magenta } // Literal.String
+  .s1    { color: $uwu-magenta } // Literal.String.Single
+  .s2    { color: $uwu-magenta } // Literal.String.Double
+  .sb    { color: $uwu-magenta } // Literal.String.Backtick
+  .sc    { color: $uwu-magenta } // Literal.String.Char
+  .sd    { color: $uwu-magenta } // Literal.String.Doc
+  .se    { color: $uwu-magenta } // Literal.String.Escape
+  .sh    { color: $uwu-magenta } // Literal.String.Heredoc
+  .si    { color: $uwu-magenta } // Literal.String.Interpol
+  .sr    { color: $uwu-green } // Literal.String.Regex
+  .ss    { color: $uwu-magenta } // Literal.String.Symbol
+  .sx    { color: $uwu-magenta } // Literal.String.Other
+
+  .w     { color: $uwu-mono1 } // Text.Whitespace
+
+  .lineno, .gl { color: $uwu-mono1 } // Line Number
+  .hll   { background-color: $uwu-mark-line-bgcolor } // Marked-lines
+}
+
+.figure {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/assets/background.jpg');
+  background-size: cover;
+  z-index: -9999;
+}

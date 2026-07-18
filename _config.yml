@@ -32,10 +32,12 @@ theme: minima
 plugins:
   - jekyll-feed
 
-#minima:
+minima:
 #  skin: uwunicorn-dark # does not work
-#  skin: sorarized-dark # neither does this
+#  skin: solarized-dark # neither does this
+  #nope, it was just a typo, a japanese one
 #  skin: dark # this works
+  skin: uwulaser-dark
 
 #defaults:
 #  - scope:
