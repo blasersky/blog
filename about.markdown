@@ -11,7 +11,7 @@ maybe i'll write more about myself later...
 ## contact
 you can write to me via email: `blasere [you know what] proton dot me`
 
-here is the pgp key:
+but beware that i treat messages more like udp than tcp. here is the pgp key:
 ```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
