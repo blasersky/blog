@@ -33,6 +33,9 @@ gcpzp8tZY+iYY8g7dwM=
 
 ```
 
+## onionsite
+this blog can be read via tor: [tlqzsn2baekxxkfsfkejiexkefite3a46plsifiajnfldav62j7bbhqd.onion](http://tlqzsn2baekxxkfsfkejiexkefite3a46plsifiajnfldav62j7bbhqd.onion)
+
 ## copyright
 all the text on this site is licensed under the [cc-by-sa-4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en) unless otherwise noted. i will usually try to use free images and give the sauce to them, but sometimes it might not be possible.
 
